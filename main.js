@@ -1,4 +1,3 @@
-
 var activar_reloj, activar_cronometro, activar_temporizador
 var start_crono, flag_crono, start_temp, stop_temp, restart_temp
 
@@ -20,6 +19,13 @@ function evento_activar(show, hide1, hide2) {
     div_hide2.hidden = true;
   });
 
+}
+
+function reset() {
+  var fecha = new Date()
+  document.getElementById("text_reloj").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+  document.getElementById("text_cronometro").innerHTML = "00:00:00";
+  document.getElementById("text_temporizador").innerHTML = "00:00:00";
 }
 
 /* 
@@ -46,7 +52,7 @@ function botones() {
   evento_activar(activar_temporizador, activar_cronometro, activar_reloj);
 
   //Funcion de eventos de acción.
-  evento_crono(start_crono, flag_crono)
+  //evento_crono(start_crono, flag_crono)
   evento_temporizador(start_temp, stop_temp, restart_temp, pause_temp)
 }
 
@@ -55,22 +61,18 @@ function __main__() {
   preload();
   reset();
   botones();
-  var crono1 = new crono
+  var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"))
   var temporizador1 = new temporizador
-  var reloj1 = new reloj
-  crono1.activarCrono
-  crono1.crearIntervaloCrono
-  crono1.stopIntervaloCrono
-  crono1.evento_crono
-  temporizador1.evento_temporizador
-  temporizador1.stopTemporizador
-  temporizador1.crearTemporizador
-  temporizador1.activarTemp
-  reloj1.activarReloj
-  reloj1.stopIntervaloReloj
-  reloj1.reset
-  temporizador1.createlistaFlags
-  temporizador1.deletelistaFlags
+  var reloj1 = new reloj(document.getElementById("text_reloj"), new Date())
+  //crono1.activarCrono()
+   //temporizador1.evento_temporizador
+   //temporizador1.stopTemporizador
+   //temporizador1.crearTemporizador
+   //temporizador1.activarTemp
+  reloj1.activarReloj()
+  reloj1.crearIntervaloReloj()
+   //temporizador1.createlistaFlags
+   //temporizador1.deletelistaFlags
 
 
   //Vamos a utilizar el objeto "window" para establecer las variables de los intervalos y temporizadores de forma global
@@ -80,10 +82,6 @@ function __main__() {
   window.intervalo_cronometro = null;
   window.temporizador_temporizador = null;
   window.intervalo_temporizador = null;
-
-  //AQUI LAS LLAMADAS A CREACIÓN DE INTERVALOS
-
-  crearIntervaloReloj(); //Como es un reloj, no haría falta detener el intervalo, pero se crea el método stopIntervaloReloj, por si acaso
 }
 
 __main__();

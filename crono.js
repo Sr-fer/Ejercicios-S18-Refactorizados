@@ -6,9 +6,9 @@ this.segundos_crono = 0
 this.milisegundos_crono = 0
 this.text_cronometro = document.getElementById("text_cronometro");
 }
-}
 
-function evento_crono(start, flag) {
+
+evento_crono(start, flag) {
   start.addEventListener('click', () => {
     if (start.innerHTML == 'Start') {
       crearIntervaloCrono()
@@ -32,11 +32,11 @@ function evento_crono(start, flag) {
   })
 }
 
-function activarCrono() {
+activarCrono() {
   this.contador_crono++
   if (this.contador_crono < 100) {
     this.milisegundos_crono = contador_crono
-  } else if (this.contador_crono == 100) {
+  } if (this.contador_crono == 100) {
     this.contador_crono = 0
     this.segundos_crono++
     if (this.segundos_crono == 60) {
@@ -47,12 +47,12 @@ function activarCrono() {
   text_cronometro.innerHTML = this.minutos_crono + ":" + this.segundos_crono + ":" + this.milisegundos_crono;
 }
 
-function crearIntervaloCrono() {
-  intervalo_cronometro = setInterval(activarCrono, 10)
+crearIntervaloCrono() {
+  intervalo_cronometro = setInterval(this.activarCrono, 10)
 }
 
-function stopIntervaloCrono() {
+stopIntervaloCrono() {
   clearInterval(intervalo_cronometro)
 }
-
+}
 //primera interaccion undefined
