@@ -83,24 +83,6 @@ function evento_temporizador(start, stop, restart, pause) {
     }
     this.text_temporizador.innerHTML = this.horas_temporizador + ":" + this.minutos_temporizador + ":" + this.segundos_temporizador;
   }
-
-  function createlistaFlags() {
-    var tiempo_parcial = document.getElementById('tiempos_parciales')
-    var elementoNodo = document.createElement('li');
-    var textoNodo = document.createTextNode(this.minutos_crono + ":" + this.segundos_crono + ":" + this.milisegundos_crono);
-  
-    elementoNodo.appendChild(textoNodo);
-    tiempo_parcial.appendChild(elementoNodo);
-  }
-  
-  function deletelistaFlags() {
-    var tiempo_parcial = document.getElementById('tiempos_parciales')
-    var elementos_lista = tiempo_parcial.getElementsByTagName('li')
-    for (i = elementos_lista.length - 1; i >= 0; i--) {
-      tiempo_parcial.removeChild(elementos_lista[i]);
-    }
-  }
-  
   function resetBotonesTemp(start, stop, restart, pause) {
     pause.disabled = true
     stop.disabled = true

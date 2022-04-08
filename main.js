@@ -31,8 +31,7 @@ function reset() {
 /* 
 Función para establecer la funcionalidad de los botones
 */
-function botones() {
-
+function botones(start_crono,  flag_crono) {
   //Botones de acción.
   start_crono = document.getElementById("start_cronometro");
   flag_crono = document.getElementById("flag_cronometro");
@@ -61,18 +60,16 @@ function __main__() {
   preload();
   reset();
   botones();
+  var reloj1 = new reloj(document.getElementById("text_reloj"), new Date())
   var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"))
   var temporizador1 = new temporizador
-  var reloj1 = new reloj(document.getElementById("text_reloj"), new Date())
-  //crono1.activarCrono()
+  crono1.evento_crono()
    //temporizador1.evento_temporizador
    //temporizador1.stopTemporizador
    //temporizador1.crearTemporizador
    //temporizador1.activarTemp
   reloj1.activarReloj()
   reloj1.crearIntervaloReloj()
-   //temporizador1.createlistaFlags
-   //temporizador1.deletelistaFlags
 
 
   //Vamos a utilizar el objeto "window" para establecer las variables de los intervalos y temporizadores de forma global
