@@ -9,16 +9,16 @@ this.intervalo_cronometro = null
 }
 
 
-evento_crono(start_crono,  flag_crono) {
-var start = start_crono //undefined 
-var flag = flag_crono //undefined 
+evento_crono() {
+  var start = document.getElementById("start_cronometro");
+  var flag = document.getElementById("flag_cronometro");
   start.addEventListener('click', () => {
     if (start.innerHTML == 'Start') {
-      this.crearIntervaloCrono() //no funciona por el this. delante
+      this.crearIntervaloCrono()
       flag.disabled = false
       start.innerHTML = 'Stop'
     } else {
-      this.stopIntervaloCrono() //no funciona por el this. delante
+      this.stopIntervaloCrono()
       this.contador_crono = 0
       this.minutos_crono = 0
       this.segundos_crono = 0
@@ -26,12 +26,12 @@ var flag = flag_crono //undefined
       this.text_cronometro.innerHTML = 0 + ":" + 0 + ":" + 0;
       this.contador_crono = 0
       start.innerHTML = 'Start'
-      this.deleteListFlags() //no funciona por el this. delante
+      this.deleteListFlags()
     }
   })
 
   flag.addEventListener('click', () => {
-    this.createListFlags() //no funciona por el this. delante
+    this.createListFlags()
   })
 }
 
@@ -53,29 +53,29 @@ deleteListFlags() {
 }
 
 
-activarCrono() {
-  this.contador_crono++
-  if (this.contador_crono < 100) {
-    this.milisegundos_crono = this.contador_crono
-  } if (this.contador_crono == 100) {
-    this.contador_crono = 0
-    this.segundos_crono++
-    if (this.segundos_crono == 60) {
-      this.segundos_crono = 0
-      this.minutos_crono++
-    }
+activarCrono(crono) {
+  crono.contador_crono++
+  if (crono.contador_crono < 100) {
+  crono.milisegundos_crono = crono.contador_crono
   }
-  text_cronometro.innerHTML = this.minutos_crono + ":" + this.segundos_crono + ":" + this.milisegundos_crono;
-}
-
-crearIntervaloCrono() {
+  if (crono.contador_crono == 100) {
+  crono.contador_crono = 0
+  crono.segundos_crono++
+  if (crono.segundos_crono == 60) {
+  crono.segundos_crono = 0
+  crono.minutos_crono++
+  }
+  }
+  text_cronometro.innerHTML = crono.minutos_crono + ":" + crono.segundos_crono + ":" + crono.milisegundos_crono;
+  }
+  
+  crearIntervaloCrono() {
   this.intervalo_cronometro = null
-  this.intervalo_cronometro = setInterval(this.activarCrono , 10) //no funciona por el this. delante
+  this.intervalo_cronometro = setInterval(this.activarCrono, 10, this) //no funciona por el this. delante
+  }
+  
+  stopIntervaloCrono() {
+      clearInterval(this.intervalo_cronometro)
+      this.intervalo_cronometro = null
+  }
 }
-
-stopIntervaloCrono() {
-  this.intervalo_cronometro = null
-  clearInterval(this.intervalo_cronometro)
-}
-}
-//primera interaccion undefined

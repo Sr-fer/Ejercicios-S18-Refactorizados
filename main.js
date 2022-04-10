@@ -31,10 +31,10 @@ function reset() {
 /* 
 Función para establecer la funcionalidad de los botones
 */
-function botones(start_crono,  flag_crono) {
+function botones() {
   //Botones de acción.
-  start_crono = document.getElementById("start_cronometro");
-  flag_crono = document.getElementById("flag_cronometro");
+  //start_crono = document.getElementById("start_cronometro");
+  //flag_crono = document.getElementById("flag_cronometro");
   start_temp = document.getElementById("start_temporizador");
   stop_temp = document.getElementById("stop_temporizador");
   restart_temp = document.getElementById("restart_temporizador");
