@@ -35,10 +35,10 @@ function botones() {
   //Botones de acción.
   //start_crono = document.getElementById("start_cronometro");
   //flag_crono = document.getElementById("flag_cronometro");
-  start_temp = document.getElementById("start_temporizador");
-  stop_temp = document.getElementById("stop_temporizador");
-  restart_temp = document.getElementById("restart_temporizador");
-  pause_temp = document.getElementById("pause_temporizador");
+  //start_temp = document.getElementById("start_temporizador");
+  //stop_temp = document.getElementById("stop_temporizador");
+  //restart_temp = document.getElementById("restart_temporizador");
+  //pause_temp = document.getElementById("pause_temporizador");
 
   //Botones de selección.
   activar_reloj = document.getElementById("activar_reloj");
@@ -52,7 +52,7 @@ function botones() {
 
   //Funcion de eventos de acción.
   //evento_crono(start_crono, flag_crono)
-  evento_temporizador(start_temp, stop_temp, restart_temp, pause_temp)
+  //evento_temporizador(start_temp, stop_temp, restart_temp, pause_temp)
 }
 
 
@@ -62,14 +62,11 @@ function __main__() {
   botones();
   var reloj1 = new reloj(document.getElementById("text_reloj"), new Date())
   var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"))
-  var temporizador1 = new temporizador
-  crono1.evento_crono()
-   //temporizador1.evento_temporizador
-   //temporizador1.stopTemporizador
-   //temporizador1.crearTemporizador
-   //temporizador1.activarTemp
+  var temporizador1 = new temporizador(document.getElementById("horas_temporizador"), document.getElementById("minutos_temporizador"), document.getElementById("segundos_temporizador"))
   reloj1.activarReloj()
   reloj1.crearIntervaloReloj()
+  crono1.evento_crono()
+  temporizador1.evento_temporizador()
 
 
   //Vamos a utilizar el objeto "window" para establecer las variables de los intervalos y temporizadores de forma global
