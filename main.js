@@ -13,12 +13,11 @@ function evento_activar(show, hide1, hide2) {
   //Al diseñar los divs de tal manera que su nombre sea la extensión del resto de elmentos podemos
   //Referenciarlos simplemente dividiendo la cadena del ID del resto y recogiendo el primer elemento.
   show.addEventListener("click", () => {
-    reset();
-    div_show.hidden = false;
-    div_hide1.hidden = true;
-    div_hide2.hidden = true;
-  });
-
+  reset();
+  div_show.hidden = false;
+  div_hide1.hidden = true;
+  div_hide2.hidden = true;
+});
 }
 
 function reset() {
@@ -32,14 +31,6 @@ function reset() {
 Función para establecer la funcionalidad de los botones
 */
 function botones() {
-  //Botones de acción.
-  //start_crono = document.getElementById("start_cronometro");
-  //flag_crono = document.getElementById("flag_cronometro");
-  //start_temp = document.getElementById("start_temporizador");
-  //stop_temp = document.getElementById("stop_temporizador");
-  //restart_temp = document.getElementById("restart_temporizador");
-  //pause_temp = document.getElementById("pause_temporizador");
-
   //Botones de selección.
   activar_reloj = document.getElementById("activar_reloj");
   activar_cronometro = document.getElementById("activar_cronometro");
@@ -61,8 +52,8 @@ function __main__() {
   reset();
   botones();
   var reloj1 = new reloj(document.getElementById("text_reloj"), new Date())
-  var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"))
-  var temporizador1 = new temporizador(document.getElementById("horas_temporizador"), document.getElementById("minutos_temporizador"), document.getElementById("segundos_temporizador"))
+  var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"), document.getElementById("start_cronometro"), document.getElementById("flag_cronometro"))
+  var temporizador1 = new temporizador(document.getElementById("horas_temporizador"), document.getElementById("minutos_temporizador"), document.getElementById("segundos_temporizador"),  document.getElementById("start_temporizador"), document.getElementById("stop_temporizador"), document.getElementById("restart_temporizador"), document.getElementById("pause_temporizador"))
   reloj1.activarReloj()
   reloj1.crearIntervaloReloj()
   crono1.evento_crono()
