@@ -92,10 +92,10 @@ if (this.segundos_temporizador == 0 && this.minutos_temporizador == 0 && this.ho
 }
   this.text_temporizador.innerHTML = this.horas_temporizador + ":" + this.minutos_temporizador + ":" + this.segundos_temporizador;
 }
-resetBotonesTemp(start, stop, restart, pause) {
-  pause.disabled = true
-  stop.disabled = true
-  restart.disabled = true
-  start.disabled = false
+resetBotonesTemp() {
+  this.pause.disabled = true
+  this.stop.disabled = true
+  this.restart.disabled = true
+  this.start.disabled = false
 }
 }
