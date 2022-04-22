@@ -71,7 +71,7 @@ if (crono.segundos_crono == 60) {
   
 crearIntervaloCrono() {
   this.intervalo_cronometro = null
-  this.intervalo_cronometro = setInterval(this.activarCrono, 10, this) //no funciona por el this. delante
+  this.intervalo_cronometro = setInterval(this.activarCrono, 10, this)
 }
   
 stopIntervaloCrono() {

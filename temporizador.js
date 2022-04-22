@@ -64,7 +64,7 @@ evento_temporizador() {
 }
 
 crearTemporizador(time) {
-  this.intervalo_temporizador = setInterval(this.activarTemp, 1000)
+  this.intervalo_temporizador = setInterval(this.activarTemp, 1000, this)
   this.temporizador_temporizador = setTimeout(this.stopTemporizador, time)
 }
   
@@ -73,29 +73,30 @@ stopTemporizador() {
   clearTimeout(this.temporizador_temporizador)
 }
 
-activarTemp() {
-if (this.segundos_temporizador > 0) {
-  this.segundos_temporizador--
+activarTemp(temporizador) {
+if (temporizador.segundos_temporizador > 0) {
+  temporizador.segundos_temporizador--
 } 
-else if (this.segundos_temporizador == 0 && this.minutos_temporizador > 0) {
-  this.minutos_temporizador--
-  this.segundos_temporizador = 59
+else if (temporizador.segundos_temporizador == 0 && temporizador.minutos_temporizador > 0) {
+  temporizador.minutos_temporizador--
+  temporizador.segundos_temporizador = 59
 }
-else if (this.segundos_temporizador == 0 && this.minutos_temporizador == 0 && this.horas_temporizador > 0) {
-  this.horas_temporizador--
-  this.minutos_temporizador = 59
-  this.segundos_temporizador = 59
+else if (temporizador.segundos_temporizador == 0 && temporizador.minutos_temporizador == 0 && temporizador.horas_temporizador > 0) {
+  temporizador.horas_temporizador--
+  temporizador.minutos_temporizador = 59
+  temporizador.segundos_temporizador = 59
 }
-if (this.segundos_temporizador == 0 && this.minutos_temporizador == 0 && this.horas_temporizador == 0) {
+if (temporizador.segundos_temporizador == 0 && temporizador.minutos_temporizador == 0 && temporizador.horas_temporizador == 0) {
   alert('¡SE ACABÓ EL TIEMPO!')
   resetBotonesTemp(start_temp, stop_temp, restart_temp, pause_temp)
 }
-  this.text_temporizador.innerHTML = this.horas_temporizador + ":" + this.minutos_temporizador + ":" + this.segundos_temporizador;
+temporizador.text_temporizador.innerHTML = temporizador.horas_temporizador + ":" + temporizador.minutos_temporizador + ":" + temporizador.segundos_temporizador;
 }
-resetBotonesTemp() {
-  this.pause.disabled = true
-  this.stop.disabled = true
-  this.restart.disabled = true
-  this.start.disabled = false
+
+resetBotonesTemp(temporizador) {
+  temporizador.pause.disabled = true
+  temporizador.stop.disabled = true
+  temporizador.restart.disabled = true
+  temporizador.start.disabled = false
 }
 }
