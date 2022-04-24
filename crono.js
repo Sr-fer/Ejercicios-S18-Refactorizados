@@ -1,81 +1,81 @@
-class crono {
-  constructor(contador_crono, minutos_crono, segundos_crono, milisegundos_crono, text_cronometro, start, flag) {
-  this.contador_crono = contador_crono
-  this.minutos_crono = minutos_crono
-  this.segundos_crono = segundos_crono
-  this.milisegundos_crono = milisegundos_crono
-  this.text_cronometro = text_cronometro
+class Chrono {
+  constructor(chrono_counter, chrono_minutes, chrono_seconds, chrono_miliseconds, chrono_text, start, flag) {
+  this.chrono_counter = chrono_counter
+  this.chrono_minutes = chrono_minutes
+  this.chrono_seconds = chrono_seconds
+  this.chrono_miliseconds = chrono_miliseconds
+  this.chrono_text = chrono_text
   this.start = start
   this.flag = flag
-  this.intervalo_cronometro = null
+  this.chrono_interval = null
 }
 
 
-evento_crono() {
+ChronoEvent() {
   this.start.addEventListener('click', () => {
   if( this.start.innerHTML == 'Start') {
-    this.crearIntervaloCrono()
+    this.NewChronoInterval()
     this.flag.disabled = false
     this.start.innerHTML = 'Stop'
 } 
   else {
-    this.stopIntervaloCrono()
-    this.contador_crono = 0
-    this.minutos_crono = 0
-    this.segundos_crono = 0
-    this.milisegundos_crono = 0
-    this.text_cronometro.innerHTML = 0 + ":" + 0 + ":" + 0;
-    this.contador_crono = 0
+    this.StopChronoInterval()
+    this.chrono_counter = 0
+    this.chrono_minutes = 0
+    this.chrono_seconds = 0
+    this.chrono_miliseconds = 0
+    this.chrono_text.innerHTML = 0 + ":" + 0 + ":" + 0;
+    this.chrono_counter = 0
     this.start.innerHTML = 'Start'
-    this.deleteListFlags()
+    this.DeleteFlagList()
 }
 })
 this.flag.addEventListener('click', () => {
-  this.createListFlags()
+  this.CreateFlagList()
 })
 }
 
-createListFlags() {
-  var tiempo_parcial = document.getElementById('tiempos_parciales')
-  var elementoNodo = document.createElement('li');
-  var textoNodo = document.createTextNode(this.minutos_crono + ":" + this.segundos_crono + ":" + this.milisegundos_crono);
+CreateFlagList() {
+  var partial_time = document.getElementById('partial_temps')
+  var element_node = document.createElement('li');
+  var node_text = document.createTextNode(this.chrono_minutes + ":" + this.chrono_seconds + ":" + this.chrono_miliseconds);
 
-  elementoNodo.appendChild(textoNodo);
-  tiempo_parcial.appendChild(elementoNodo);
+  element_node.appendChild(node_text);
+  partial_time.appendChild(element_node);
 }
 
-deleteListFlags() {
-  var tiempo_parcial = document.getElementById('tiempos_parciales')
-  var elementos_lista = tiempo_parcial.getElementsByTagName('li')
+DeleteFlagList() {
+  var partial_time = document.getElementById('partial_temps')
+  var elementos_lista = partial_time.getElementsByTagName('li')
   for (var i = elementos_lista.length - 1; i >= 0; i--) {
-  tiempo_parcial.removeChild(elementos_lista[i]);
+  partial_time.removeChild(elementos_lista[i]);
 }
 }
 
 
-activarCrono(crono) {
-  crono.contador_crono++
-if (crono.contador_crono < 100) {
-  crono.milisegundos_crono = crono.contador_crono
+StartChrono(Chrono) {
+  Chrono.chrono_counter++
+if (Chrono.chrono_counter < 100) {
+  Chrono.chrono_miliseconds = Chrono.chrono_counter
   }
-if (crono.contador_crono == 100) {
-  crono.contador_crono = 0
-  crono.segundos_crono++
-if (crono.segundos_crono == 60) {
-  crono.segundos_crono = 0
-  crono.minutos_crono++
+if (Chrono.chrono_counter == 100) {
+  Chrono.chrono_counter = 0
+  Chrono.chrono_seconds++
+if (Chrono.chrono_seconds == 60) {
+  Chrono.chrono_seconds = 0
+  Chrono.chrono_minutes++
 }
 }
-  text_cronometro.innerHTML = crono.minutos_crono + ":" + crono.segundos_crono + ":" + crono.milisegundos_crono;
-}
-  
-crearIntervaloCrono() {
-  this.intervalo_cronometro = null
-  this.intervalo_cronometro = setInterval(this.activarCrono, 10, this)
+  chrono_text.innerHTML = Chrono.chrono_minutes + ":" + Chrono.chrono_seconds + ":" + Chrono.chrono_miliseconds;
 }
   
-stopIntervaloCrono() {
-  clearInterval(this.intervalo_cronometro)
-  this.intervalo_cronometro = null
+NewChronoInterval() {
+  this.chrono_interval = null
+  this.chrono_interval = setInterval(this.StartChrono, 10, this)
+}
+  
+StopChronoInterval() {
+  clearInterval(this.chrono_interval)
+  this.chrono_interval = null
 }
 }

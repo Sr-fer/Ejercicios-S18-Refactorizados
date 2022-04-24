@@ -1,4 +1,4 @@
-class clock {
+class Clock {
     constructor(clock_text, date){
     this.clock_text = clock_text;
     this.date = date 

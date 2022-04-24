@@ -23,7 +23,7 @@ function evento_activar(show, hide1, hide2) {
 function reset() {
   var fecha = new Date()
   document.getElementById("clock_text").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
-  document.getElementById("text_cronometro").innerHTML = "00:00:00";
+  document.getElementById("chrono_text").innerHTML = "00:00:00";
   document.getElementById("text_temporizador").innerHTML = "00:00:00";
 }
 
@@ -51,12 +51,12 @@ function __main__() {
   preload();
   reset();
   botones();
-  var Clock_1 = new clock(document.getElementById("clock_text"), new Date())
-  var crono1 = new crono(0, 0, 0, 0, document.getElementById("text_cronometro"), document.getElementById("start_cronometro"), document.getElementById("flag_cronometro"))
+  var Clock_1 = new Clock(document.getElementById("clock_text"), new Date())
+  var Chrono1 = new Chrono(0, 0, 0, 0, document.getElementById("chrono_text"), document.getElementById("start_chrono"), document.getElementById("flag_chrono"))
   var temporizador1 = new temporizador(document.getElementById("horas_temporizador"), document.getElementById("minutos_temporizador"), document.getElementById("segundos_temporizador"),  document.getElementById("start_temporizador"), document.getElementById("stop_temporizador"), document.getElementById("restart_temporizador"), document.getElementById("pause_temporizador"))
   Clock_1.StartClock()
   Clock_1.NewClockInterval() 
-  crono1.evento_crono()
+  Chrono1.ChronoEvent()
   temporizador1.evento_temporizador()
 
 
