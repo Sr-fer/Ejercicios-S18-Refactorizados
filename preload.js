@@ -46,17 +46,17 @@ function preload() {
   }
   
   function selectoresTemporizador() {
-    var horas_temporizador = document.getElementById("horas_temporizador");
+    var horas_temporizador = document.getElementById("timer_hours");
     for (var i = 0; i <= 24; i++) {
       var option = new Option(i, i);
       horas_temporizador.appendChild(option);
     }
-    var minutos_temporizador = document.getElementById("minutos_temporizador");
+    var minutos_temporizador = document.getElementById("timer_minutes");
     for (var i = 0; i <= 60; i++) {
       var option = new Option(i, i);
       minutos_temporizador.appendChild(option);
     }
-    var segundos_temporizador = document.getElementById("segundos_temporizador");
+    var segundos_temporizador = document.getElementById("timer_seconds");
     for (var i = 0; i <= 60; i++) {
       var option = new Option(i, i);
       segundos_temporizador.appendChild(option);

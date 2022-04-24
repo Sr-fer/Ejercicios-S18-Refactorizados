@@ -24,7 +24,7 @@ function reset() {
   var fecha = new Date()
   document.getElementById("clock_text").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
   document.getElementById("chrono_text").innerHTML = "00:00:00";
-  document.getElementById("text_temporizador").innerHTML = "00:00:00";
+  document.getElementById("timer_text").innerHTML = "00:00:00";
 }
 
 /* 
@@ -53,11 +53,11 @@ function __main__() {
   botones();
   var Clock_1 = new Clock(document.getElementById("clock_text"), new Date())
   var Chrono1 = new Chrono(0, 0, 0, 0, document.getElementById("chrono_text"), document.getElementById("start_chrono"), document.getElementById("flag_chrono"))
-  var temporizador1 = new temporizador(document.getElementById("horas_temporizador"), document.getElementById("minutos_temporizador"), document.getElementById("segundos_temporizador"),  document.getElementById("start_temporizador"), document.getElementById("stop_temporizador"), document.getElementById("restart_temporizador"), document.getElementById("pause_temporizador"))
+  var Timer1 = new Timer(document.getElementById("timer_hours"), document.getElementById("timer_minutes"), document.getElementById("timer_seconds"),  document.getElementById("start_timer"), document.getElementById("stop_timer"), document.getElementById("restart_timer"), document.getElementById("pause_timer"))
   Clock_1.StartClock()
   Clock_1.NewClockInterval() 
   Chrono1.ChronoEvent()
-  temporizador1.evento_temporizador()
+  Timer1.TimerEvent()
 
 
   //Vamos a utilizar el objeto "window" para establecer las variables de los intervalos y temporizadores de forma global
