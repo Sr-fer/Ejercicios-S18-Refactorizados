@@ -62,4 +62,3 @@ function preload() {
       segundos_temporizador.appendChild(option);
     }
   }
-  

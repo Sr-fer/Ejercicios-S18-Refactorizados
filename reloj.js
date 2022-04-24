@@ -1,26 +1,26 @@
-class reloj {
-    constructor(text_reloj, fecha){
-    this.text_reloj = text_reloj;
-    this.fecha = fecha 
-    this.hora = fecha.getHours()
-    this.minutos = fecha.getMinutes()
-    this.segundos = fecha.getSeconds()
-    this.intervalo_reloj = null
+class clock {
+    constructor(clock_text, date){
+    this.clock_text = clock_text;
+    this.date = date 
+    this.hour = date.getHours()
+    this.minutes = date.getMinutes()
+    this.seconds = date.getSeconds()
+    this.clock_interval = null
 }  
 
-activarReloj() {
-    this.fecha = new Date()
-    this.hora = this.fecha.getHours()
-    this.minutos =  this.fecha.getMinutes()
-    this.segundos =  this.fecha.getSeconds()
-    this.text_reloj.innerHTML =  this.hora + ":" +  this.minutos + ":" +  this.segundos;
+StartClock() {
+    this.date = new Date()
+    this.hour = this.date.getHours()
+    this.minutes =  this.date.getMinutes()
+    this.seconds =  this.date.getSeconds()
+    this.clock_text.innerHTML =  this.hour + ":" +  this.minutes + ":" +  this.seconds;
 }
       
-stopIntervaloReloj() { 
-    clearInterval(this.intervalo_reloj);
+StopClockInterval() { 
+    clearInterval(this.clock_interval);
 }
 
-crearIntervaloReloj() {
-    this.intervalo_reloj = setInterval(this.activarReloj, 1000);
+NewClockInterval() {
+    this.clock_interval = setInterval(this.StartClock, 1000);
 }
 }
