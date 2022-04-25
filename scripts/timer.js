@@ -64,13 +64,13 @@ TimerEvent() {
 }
 
 NewTimer(time) {
-  this.intervalo_temporizador = setInterval(this.StartTimer, 1000, this)
-  this.temporizador_temporizador = setTimeout(this.StopTimer, time)
+  this.timerInterval = setInterval(this.StartTimer, 1000, this)
+  this.timerTimer = setTimeout(this.StopTimer, time)
 }
   
 StopTimer() {
-  clearInterval(this.intervalo_temporizador)
-  clearTimeout(this.temporizador_temporizador)
+  clearInterval(this.timerInterval)
+  clearTimeout(this.timerTimer)
 }
 
 StartTimer(Timer) {
