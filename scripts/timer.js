@@ -22,9 +22,9 @@ TimerEvent() {
   this.timerHours = this.hourSelectTimer.value 
   this.timerMinutes = this.hourSelectTimer.value 
   this.timerSeconds = this.secondesSelectTimer.value 
-  const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+  const TIME = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
     this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
-    this.NewTimer(time)
+    this.NewTimer(TIME)
     this.pause.disabled = false
     this.stop.disabled = false
     this.restart.disabled = false
@@ -44,9 +44,9 @@ TimerEvent() {
     this.timerHours = this.hourSelectTimer.value 
     this.timerMinutes = this.minutesSelectTimer.value 
     this.timerSeconds = this.secondesSelectTimer.value 
-    const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+    const TIME = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
     this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
-    this.NewTimer(time)
+    this.NewTimer(TIME)
   })
   
   this.pause.addEventListener('click', () => {
@@ -56,16 +56,16 @@ TimerEvent() {
     } 
   else {
     this.pause.innerHTML = 'Pause'
-    const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+    const TIME = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
     this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
-    this.NewTimer(time)
+    this.NewTimer(TIME)
   }
   })
 }
 
-NewTimer(time) {
+NewTimer(TIME) {
   this.timerInterval = setInterval(this.StartTimer, 1000, this)
-  this.timerTimer = setTimeout(this.StopTimer, time)
+  this.timerTimer = setTimeout(this.StopTimer, TIME)
 }
   
 StopTimer() {

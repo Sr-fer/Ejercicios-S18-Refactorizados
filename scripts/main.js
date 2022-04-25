@@ -21,8 +21,8 @@ function evento_activar(show, hide1, hide2) {
 }
 
 function reset() {
-  const fecha = new Date()
-  document.getElementById("clockText").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+  const FECHA = new Date()
+  document.getElementById("clockText").innerHTML = FECHA.getHours() + ":" + FECHA.getMinutes() + ":" + FECHA.getSeconds();
   document.getElementById("chronoText").innerHTML = "00:00:00";
   document.getElementById("timerText").innerHTML = "00:00:00";
 }
