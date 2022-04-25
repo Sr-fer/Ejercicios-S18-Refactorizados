@@ -1,5 +1,5 @@
 var activar_reloj, activar_cronometro, activar_temporizador
-var start_crono, flag_crono, start_temp, stop_temp, restart_temp
+var startChrono, flagChrono, startTimer, stopTimer, restartTimer
 
 /*
 Permite crear el evento que muestre el primer argumento y oculte los otros dos

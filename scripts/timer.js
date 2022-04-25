@@ -88,7 +88,7 @@ else if (Timer.timerSeconds == 0 && Timer.timerMinutes == 0 && Timer.timerHours 
 }
 if (Timer.timerSeconds == 0 && Timer.timerMinutes == 0 && Timer.timerHours == 0) {
   alert('¡SE ACABÓ EL TIEMPO!')
-  ButtonTimerReset(start_timer, stop_timer, restart_timer, pause_timer)
+  ButtonTimerReset(startTimer, stopTimer, restartTimer, pauseTimer)
 }
 Timer.timerText.innerHTML = Timer.timerHours + ":" + Timer.timerMinutes + ":" + Timer.timerSeconds;
 }
