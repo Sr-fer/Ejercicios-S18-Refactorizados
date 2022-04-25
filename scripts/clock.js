@@ -1,11 +1,11 @@
 class Clock {
-    constructor(clock_text, date){
-    this.clock_text = clock_text;
+    constructor(clockText, date){
+    this.clockText = clockText;
     this.date = date 
     this.hour = date.getHours()
     this.minutes = date.getMinutes()
     this.seconds = date.getSeconds()
-    this.clock_interval = null
+    this.clockInterval = null
 }  
 
 StartClock() {
@@ -13,14 +13,14 @@ StartClock() {
     this.hour = this.date.getHours()
     this.minutes =  this.date.getMinutes()
     this.seconds =  this.date.getSeconds()
-    this.clock_text.innerHTML =  this.hour + ":" +  this.minutes + ":" +  this.seconds;
+    this.clockText.innerHTML =  this.hour + ":" +  this.minutes + ":" +  this.seconds;
 }
       
 StopClockInterval() { 
-    clearInterval(this.clock_interval);
+    clearInterval(this.clockInterval);
 }
 
 NewClockInterval() {
-    this.clock_interval = setInterval(this.StartClock, 1000);
+    this.clockInterval = setInterval(this.StartClock, 1000);
 }
 }

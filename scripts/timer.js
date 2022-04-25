@@ -1,29 +1,29 @@
 class Timer {
-  constructor(hour_select_timer, minutes_select_timer, seconds_select_timer, start, stop, restart, pause ) {
-  this.hour_select_timer = hour_select_timer  
-  this.minutes_select_timer = minutes_select_timer 
-  this.seconds_select_timer = seconds_select_timer
+  constructor(hourSelectTimer, minutesSelectTimer, secondesSelectTimer, start, stop, restart, pause ) {
+  this.hourSelectTimer = hourSelectTimer  
+  this.minutesSelectTimer = minutesSelectTimer 
+  this.secondesSelectTimer = secondesSelectTimer
 
   this.start = start
   this.stop = stop
   this.restart = restart
   this.pause = pause
 
-  this.timer_hours;
-  this.timer_minutes;
-  this.timer_seconds;
+  this.timerHours;
+  this.timerMinutes;
+  this.timerSeconds;
 
-  this.timer_text = timer_text
+  this.timerText = timerText
 }
 
 
 TimerEvent() {
   this.start.addEventListener('click', () => {
-  this.timer_hours = this.hour_select_timer.value 
-  this.timer_minutes = this.hour_select_timer.value 
-  this.timer_seconds = this.seconds_select_timer.value 
-  var time = ((this.timer_hours * 3600 + this.timer_minutes * 60 + this.timer_seconds) * 1000)
-    this.timer_text.innerHTML = this.timer_hours + ":" + this.timer_minutes + ":" + this.timer_seconds;
+  this.timerHours = this.hourSelectTimer.value 
+  this.timerMinutes = this.hourSelectTimer.value 
+  this.timerSeconds = this.secondesSelectTimer.value 
+  const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+    this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
     this.NewTimer(time)
     this.pause.disabled = false
     this.stop.disabled = false
@@ -34,18 +34,18 @@ TimerEvent() {
   this.stop.addEventListener('click', () => {
     this.pause.innerHTML = 'Pause'
     this.StopTimer()
-    this.timer_text.innerHTML = 0 + ":" + 0 + ":" + 0;
+    this.timerText.innerHTML = 0 + ":" + 0 + ":" + 0;
     this.start.disabled = false
   })
   
   this.restart.addEventListener('click', () => {
     this.pause.innerHTML = 'Pause'
     this.StopTimer()
-    this.timer_hours = this.hour_select_timer.value 
-    this.timer_minutes = this.minutes_select_timer.value 
-    this.timer_seconds = this.seconds_select_timer.value 
-    var time = ((this.timer_hours * 3600 + this.timer_minutes * 60 + this.timer_seconds) * 1000)
-    this.timer_text.innerHTML = this.timer_hours + ":" + this.timer_minutes + ":" + this.timer_seconds;
+    this.timerHours = this.hourSelectTimer.value 
+    this.timerMinutes = this.minutesSelectTimer.value 
+    this.timerSeconds = this.secondesSelectTimer.value 
+    const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+    this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
     this.NewTimer(time)
   })
   
@@ -56,8 +56,8 @@ TimerEvent() {
     } 
   else {
     this.pause.innerHTML = 'Pause'
-    var time = ((this.timer_hours * 3600 + this.timer_minutes * 60 + this.timer_seconds) * 1000)
-    this.timer_text.innerHTML = this.timer_hours + ":" + this.timer_minutes + ":" + this.timer_seconds;
+    const time = ((this.timerHours * 3600 + this.timerMinutes * 60 + this.timerSeconds) * 1000)
+    this.timerText.innerHTML = this.timerHours + ":" + this.timerMinutes + ":" + this.timerSeconds;
     this.NewTimer(time)
   }
   })
@@ -74,23 +74,23 @@ StopTimer() {
 }
 
 StartTimer(Timer) {
-if (Timer.timer_seconds > 0) {
-  Timer.timer_seconds--
+if (Timer.timerSeconds > 0) {
+  Timer.timerSeconds--
 } 
-else if (Timer.timer_seconds == 0 && Timer.timer_minutes > 0) {
-  Timer.timer_minutes--
-  Timer.timer_seconds = 59
+else if (Timer.timerSeconds == 0 && Timer.timerMinutes > 0) {
+  Timer.timerMinutes--
+  Timer.timerSeconds = 59
 }
-else if (Timer.timer_seconds == 0 && Timer.timer_minutes == 0 && Timer.timer_hours > 0) {
-  Timer.timer_hours--
-  Timer.timer_minutes = 59
-  Timer.timer_seconds = 59
+else if (Timer.timerSeconds == 0 && Timer.timerMinutes == 0 && Timer.timerHours > 0) {
+  Timer.timerHours--
+  Timer.timerMinutes = 59
+  Timer.timerSeconds = 59
 }
-if (Timer.timer_seconds == 0 && Timer.timer_minutes == 0 && Timer.timer_hours == 0) {
+if (Timer.timerSeconds == 0 && Timer.timerMinutes == 0 && Timer.timerHours == 0) {
   alert('¡SE ACABÓ EL TIEMPO!')
   ButtonTimerReset(start_timer, stop_timer, restart_timer, pause_timer)
 }
-Timer.timer_text.innerHTML = Timer.timer_hours + ":" + Timer.timer_minutes + ":" + Timer.timer_seconds;
+Timer.timerText.innerHTML = Timer.timerHours + ":" + Timer.timerMinutes + ":" + Timer.timerSeconds;
 }
 
 ButtonTimerReset(Timer) {

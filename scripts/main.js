@@ -21,10 +21,10 @@ function evento_activar(show, hide1, hide2) {
 }
 
 function reset() {
-  var fecha = new Date()
-  document.getElementById("clock_text").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
-  document.getElementById("chrono_text").innerHTML = "00:00:00";
-  document.getElementById("timer_text").innerHTML = "00:00:00";
+  const fecha = new Date()
+  document.getElementById("clockText").innerHTML = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+  document.getElementById("chronoText").innerHTML = "00:00:00";
+  document.getElementById("timerText").innerHTML = "00:00:00";
 }
 
 /* 
@@ -51,11 +51,11 @@ function __main__() {
   preload();
   reset();
   botones();
-  var Clock_1 = new Clock(document.getElementById("clock_text"), new Date())
-  var Chrono1 = new Chrono(0, 0, 0, 0, document.getElementById("chrono_text"), document.getElementById("start_chrono"), document.getElementById("flag_chrono"))
-  var Timer1 = new Timer(document.getElementById("timer_hours"), document.getElementById("timer_minutes"), document.getElementById("timer_seconds"),  document.getElementById("start_timer"), document.getElementById("stop_timer"), document.getElementById("restart_timer"), document.getElementById("pause_timer"))
-  Clock_1.StartClock()
-  Clock_1.NewClockInterval() 
+  var Clock1 = new Clock(document.getElementById("clockText"), new Date())
+  var Chrono1 = new Chrono(0, 0, 0, 0, document.getElementById("chronoText"), document.getElementById("startChrono"), document.getElementById("flagChrono"))
+  var Timer1 = new Timer(document.getElementById("timerHours"), document.getElementById("timerMinutes"), document.getElementById("timerSeconds"),  document.getElementById("startTimer"), document.getElementById("stopTimer"), document.getElementById("restartTimer"), document.getElementById("pauseTimer"))
+  Clock1.StartClock()
+  Clock1.NewClockInterval() 
   Chrono1.ChronoEvent()
   Timer1.TimerEvent()
 
@@ -70,3 +70,4 @@ function __main__() {
 }
 
 __main__();
+
