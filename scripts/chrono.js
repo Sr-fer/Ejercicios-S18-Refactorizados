@@ -36,19 +36,19 @@ this.flag.addEventListener('click', () => {
 }
 
 CreateFlagList() {
-  var partial_time = document.getElementById('partialTemps')
-  var element_node = document.createElement('li');
-  var node_text = document.createTextNode(this.chronoMinutes + ":" + this.chronoSeconds + ":" + this.chronoMiliseconds);
+  var partialTimes = document.getElementById('partialTemps')
+  var elementNode = document.createElement('li');
+  var nodeTex = document.createTextNode(this.chronoMinutes + ":" + this.chronoSeconds + ":" + this.chronoMiliseconds);
 
-  element_node.appendChild(node_text);
-  partial_time.appendChild(element_node);
+  elementNode.appendChild(nodeTex);
+  partialTimes.appendChild(elementNode);
 }
 
 DeleteFlagList() {
-  var partial_time = document.getElementById('partialTemps')
-  var elementos_lista = partial_time.getElementsByTagName('li')
-  for (var i = elementos_lista.length - 1; i >= 0; i--) {
-  partial_time.removeChild(elementos_lista[i]);
+  var partialTimes = document.getElementById('partialTemps')
+  var elementList = partialTimes.getElementsByTagName('li')
+  for (var i = elementList.length - 1; i >= 0; i--) {
+  partialTimes.removeChild(elementList[i]);
 }
 }
 
